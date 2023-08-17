@@ -39,8 +39,13 @@ async def world(msg: Message):
     for i in range(10):
         #while True:
         await msg.ctx.channel.send('(met)here(met)') #ping在线成员
+
+@bot.command(name='about')
+async def world(msg: Message):
+    await msg.reply('一个可以ping爆zkitefly的bot\n仓库地址：[https://github.com/hejiehao/ping-zkitefly](https://github.com/hejiehao/ping-zkitefly)')
+
 @bot.command(name='help')
 async def world(msg: Message):
-    await msg.reply('`/help`：显示用法\n`/ping_zkitefly`：ping爆zkitefly。\n`/ping_all`：ping爆所有人\n`/ping_here`：ping爆在线成员')
+    await msg.reply('`/help`：显示用法\n`/about`：关于\n`/ping_zkitefly`：ping爆zkitefly。\n`/ping_all`：ping爆所有人\n`/ping_here`：ping爆在线成员')
 
 bot.run()
