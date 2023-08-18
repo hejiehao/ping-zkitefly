@@ -56,7 +56,7 @@ async def world(msg: Message):
     await msg.reply('''`/help`：显示用法
 `/about`：关于
 `/ping_zkitefly`：ping爆zkitefly。
-`/ping_pomelopig`：ping爆pomelopig
+`/ping_pomelopig`：ping爆pomelopig。
 `/ping_all`：ping爆所有人
 `/ping_here`：ping爆在线成员''')
 
