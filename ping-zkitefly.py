@@ -28,6 +28,12 @@ async def world(msg: Message):
     #while True:
         await msg.ctx.channel.send('(met)1750602971(met)'*5) #ping zkitefly
 
+@bot.command(name='ping_pomelopig')
+async def world(msg: Message):
+    for i in range(10):
+        #while True:
+        await msg.ctx.channel.send('(met)2085267025(met)'*5) #ping Pomelopig
+
 @bot.command(name='ping_all')
 async def world(msg: Message):
     for i in range(10):
@@ -50,6 +56,7 @@ async def world(msg: Message):
     await msg.reply('''`/help`：显示用法
 `/about`：关于
 `/ping_zkitefly`：ping爆zkitefly。
+`/ping_pomelopig`：ping爆pomelopig
 `/ping_all`：ping爆所有人
 `/ping_here`：ping爆在线成员''')
 
