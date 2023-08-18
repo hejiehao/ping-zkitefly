@@ -43,7 +43,7 @@ async def world(msg: Message):
 @bot.command(name='about')
 async def world(msg: Message):
     await msg.reply('''一个可以ping爆zkitefly的bot
-    仓库地址：[https://github.com/hejiehao/ping-zkitefly](https://github.com/hejiehao/ping-zkitefly)''')
+仓库地址：[https://github.com/hejiehao/ping-zkitefly](https://github.com/hejiehao/ping-zkitefly)''')
 
 @bot.command(name='help')
 async def world(msg: Message):
