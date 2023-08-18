@@ -26,19 +26,19 @@ if not config['using_ws']:  # webhook
 async def world(msg: Message):
     for i in range(10):
     #while True:
-        await msg.ctx.channel.send('(met)1750602971(met)') #ping zkitefly
+        await msg.ctx.channel.send('(met)1750602971(met)'*5) #ping zkitefly
 
 @bot.command(name='ping_all')
 async def world(msg: Message):
     for i in range(10):
         #while True:
-        await msg.ctx.channel.send('(met)all(met)') #ping所有人
+        await msg.ctx.channel.send('(met)all(met)'*5) #ping所有人
 
 @bot.command(name='ping_here')
 async def world(msg: Message):
     for i in range(10):
         #while True:
-        await msg.ctx.channel.send('(met)here(met)') #ping在线成员
+        await msg.ctx.channel.send('(met)here(met)'*5) #ping在线成员
 
 @bot.command(name='about')
 async def world(msg: Message):
