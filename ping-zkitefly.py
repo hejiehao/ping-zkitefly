@@ -1,5 +1,8 @@
 import json
+import logging
 from khl import Bot, Message, Cert
+
+logging.basicConfig(level='INFO')
 
 def open_file(path: str):
     """打开path对应的json文件"""
