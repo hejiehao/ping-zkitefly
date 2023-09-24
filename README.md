@@ -8,9 +8,17 @@ Token：你在想P吃
 
 ```
 {
-  "token": "token",
-  "using_ws": true
+    "token": "webhook/websocket bot token",
+    "verify_token": "webhook verify token",
+    "encrypt_token": "webhook encrypt token",
+    "webhook_port": 50000,
+    "using_ws": true
 }
+
 ```
 
-把token换成你的bot的token
+把 webhook/websocket bot token 换成你的 bot 的 token
+
+"using_ws" 的值如果是 true 则使用 Websocket，如果是 false 则使用 Webhook，使用 Webhook 还需还要填入 verify_token 和 encrypt_token
+
+在 config 文件夹下还增加了 config.json.example，你可以把文件名改成 config.json 并填入必要的信息以快速配置 Bot
