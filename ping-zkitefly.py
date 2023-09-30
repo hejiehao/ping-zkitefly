@@ -1,19 +1,12 @@
-import json
 import logging
-from khl import Bot, Message, Cert
+from khl import Bot, Message, Cert, MessageTypes
+from utils.open_json import *
 
 logging.basicConfig(level='INFO')
 
-def open_file(path: str):
-    """打开path对应的json文件"""
-    with open(path, 'r', encoding='utf-8') as f:
-        tmp = json.load(f)
-    return tmp
-
-# 打开config.json
-config = open_file('./config/config.json')
-
 # 初始化机器人
+# 打开config.json
+config = open_json('./config/config.json')
 bot = Bot(token=config['token'])  # 默认采用 websocket
 """main bot"""
 if not config['using_ws']:  # webhook
@@ -49,18 +42,58 @@ async def world(msg: Message):
         #while True:
         await msg.ctx.channel.send('(met)here(met)'*5) #ping在线成员
 
+about = [
+    {
+        "type": "card",
+        "theme": "info",
+        "size": "lg",
+        "modules": [
+            {
+                "type": "section",
+                "text": {
+                    "type": "kmarkdown",
+                    "content": "一个可以ping爆zkitefly的bot\n仓库地址：[https://github.com/hejiehao/ping-zkitefly](https://github.com/hejiehao/ping-zkitefly)"
+                },
+                "mode": "left",
+                "accessory": {
+                    "type": "image",
+                    "src": "https://img.kookapp.cn/assets/2023-09/6hnT8Fq71W03k03k.png",
+                    "size": "sm"
+                }
+            }
+        ]
+    }
+]
+
 @bot.command(name='about')
 async def world(msg: Message):
-    await msg.reply('''一个可以ping爆zkitefly的bot
-仓库地址：[https://github.com/hejiehao/ping-zkitefly](https://github.com/hejiehao/ping-zkitefly)''')
+    await msg.reply(about,type=MessageTypes.CARD)
+
+help = [
+    {
+        "type": "card",
+        "theme": "info",
+        "size": "lg",
+        "modules": [
+            {
+                "type": "section",
+                "text": {
+                    "type": "kmarkdown",
+                    "content": "`/help`：显示用法\n`/about`：关于\n`/ping_zkitefly`：ping爆zkitefly。\n`/ping_pomelopig`：ping爆pomelopig。\n`/ping_all`：ping爆所有人\n`/ping_here`：ping爆在线成员"
+                },
+                "mode": "right",
+                "accessory": {
+                    "type": "image",
+                    "src": "https://img.kookapp.cn/assets/2023-09/6hnT8Fq71W03k03k.png",
+                    "size": "lg"
+                }
+            }
+        ]
+    }
+]
 
 @bot.command(name='help')
 async def world(msg: Message):
-    await msg.reply('''`/help`：显示用法
-`/about`：关于
-`/ping_zkitefly`：ping爆zkitefly。
-`/ping_pomelopig`：ping爆pomelopig。
-`/ping_all`：ping爆所有人
-`/ping_here`：ping爆在线成员''')
+    await msg.reply(help,type=MessageTypes.CARD)
 
 bot.run()
