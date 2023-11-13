@@ -1,0 +1,20 @@
+{
+  "type": "card",
+  "theme": "info",
+  "size": "lg",
+  "modules": [
+    {
+      "type": "section",
+      "text": {
+        "type": "kmarkdown",
+        "content": "一个可以ping爆zkitefly的bot\n仓库地址：[https://github.com/hejiehao/ping-zkitefly](https://github.com/hejiehao/ping-zkitefly)"
+      },
+      "mode": "left",
+      "accessory": {
+        "type": "image",
+        "src": "https://img.kookapp.cn/assets/2023-09/6hnT8Fq71W03k03k.png",
+        "size": "sm"
+      }
+    }
+  ]
+}

@@ -1,7 +1,10 @@
-import logging
-from khl import Bot, Message, Cert, MessageTypes
+import os
+from khl import Bot, Message, Cert
 from utils.open_json import *
 import logging.handlers
+
+if os.path.exists("./ping.log"):
+    os.remove("./ping.log")
 
 logger = logging.getLogger('khl')
 logging.basicConfig(level='INFO')
@@ -32,81 +35,37 @@ if not config['using_ws']:  # webhook
               port=config['webhook_port'])
 
 @bot.command(name='ping_zkitefly')
-async def world(msg: Message):
+async def zkitefly(msg: Message):
     for i in range(10):
     #while True:
         await msg.ctx.channel.send('(met)1750602971(met)'*5) #ping zkitefly
 
 @bot.command(name='ping_pomelopig')
-async def world(msg: Message):
+async def pomelopig(msg: Message):
     for i in range(10):
         #while True:
         await msg.ctx.channel.send('(met)2085267025(met)'*5) #ping Pomelopig
 
 @bot.command(name='ping_all')
-async def world(msg: Message):
+async def all(msg: Message):
     for i in range(10):
         #while True:
         await msg.ctx.channel.send('(met)all(met)'*5) #ping所有人
 
 @bot.command(name='ping_here')
-async def world(msg: Message):
+async def here(msg: Message):
     for i in range(10):
         #while True:
         await msg.ctx.channel.send('(met)here(met)'*5) #ping在线成员
 
-about = [
-    {
-        "type": "card",
-        "theme": "info",
-        "size": "lg",
-        "modules": [
-            {
-                "type": "section",
-                "text": {
-                    "type": "kmarkdown",
-                    "content": "一个可以ping爆zkitefly的bot\n仓库地址：[https://github.com/hejiehao/ping-zkitefly](https://github.com/hejiehao/ping-zkitefly)"
-                },
-                "mode": "left",
-                "accessory": {
-                    "type": "image",
-                    "src": "https://img.kookapp.cn/assets/2023-09/6hnT8Fq71W03k03k.png",
-                    "size": "sm"
-                }
-            }
-        ]
-    }
-]
-
 @bot.command(name='about')
-async def world(msg: Message):
-    await msg.reply(about,type=MessageTypes.CARD)
-
-help = [
-    {
-        "type": "card",
-        "theme": "info",
-        "size": "lg",
-        "modules": [
-            {
-                "type": "section",
-                "text": {
-                    "type": "kmarkdown",
-                    "content": "`/help`：显示用法\n`/about`：关于\n`/ping_zkitefly`：ping爆zkitefly。\n`/ping_pomelopig`：ping爆pomelopig。\n`/ping_all`：ping爆所有人\n`/ping_here`：ping爆在线成员"
-                },
-                "mode": "right",
-                "accessory": {
-                    "type": "image",
-                    "src": "https://img.kookapp.cn/assets/2023-09/6hnT8Fq71W03k03k.png",
-                    "size": "lg"
-                }
-            }
-        ]
-    }
-]
+async def about(msg: Message):
+    about = open_json("./about.json")
+    await msg.reply([about])
 
 @bot.command(name='help')
-async def world(msg: Message):
-    await msg.reply(help,type=MessageTypes.CARD)
+async def help(msg: Message):
+    help = open_json("./help.json")
+    await msg.reply([help])
 
 bot.run()

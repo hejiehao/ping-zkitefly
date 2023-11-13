@@ -1,0 +1,20 @@
+{
+  "type": "card",
+  "theme": "info",
+  "size": "lg",
+  "modules": [
+    {
+      "type": "section",
+      "text": {
+        "type": "kmarkdown",
+        "content": "`/help`：显示用法\n`/about`：关于\n`/ping_zkitefly`：ping爆zkitefly。\n`/ping_pomelopig`：ping爆pomelopig。\n`/ping_all`：ping爆所有人\n`/ping_here`：ping爆在线成员"
+      },
+      "mode": "right",
+      "accessory": {
+        "type": "image",
+        "src": "https://img.kookapp.cn/assets/2023-09/6hnT8Fq71W03k03k.png",
+        "size": "lg"
+      }
+    }
+  ]
+}
