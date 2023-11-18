@@ -34,29 +34,11 @@ if not config['using_ws']:  # webhook
                         encrypt_key=config['encrypt_token']),
               port=config['webhook_port'])
 
-@bot.command(name='ping_zkitefly')
-async def zkitefly(msg: Message):
+@bot.command()
+async def ping(msg: Message, user: str):
     for i in range(10):
     #while True:
-        await msg.ctx.channel.send('(met)1750602971(met)'*5) #ping zkitefly
-
-@bot.command(name='ping_pomelopig')
-async def pomelopig(msg: Message):
-    for i in range(10):
-        #while True:
-        await msg.ctx.channel.send('(met)2085267025(met)'*5) #ping Pomelopig
-
-@bot.command(name='ping_all')
-async def all(msg: Message):
-    for i in range(10):
-        #while True:
-        await msg.ctx.channel.send('(met)all(met)'*5) #ping所有人
-
-@bot.command(name='ping_here')
-async def here(msg: Message):
-    for i in range(10):
-        #while True:
-        await msg.ctx.channel.send('(met)here(met)'*5) #ping在线成员
+        await msg.ctx.channel.send(user*5) # ping
 
 @bot.command(name='about')
 async def about(msg: Message):

@@ -7,7 +7,7 @@
       "type": "section",
       "text": {
         "type": "kmarkdown",
-        "content": "`/help`：显示用法\n`/about`：关于\n`/ping_zkitefly`：ping爆zkitefly。\n`/ping_pomelopig`：ping爆pomelopig。\n`/ping_all`：ping爆所有人\n`/ping_here`：ping爆在线成员"
+        "content": "`/help`：显示用法\n`/about`：关于\n`/ping @xxx`：@ 你想 ping 的人，全体成员就直接 @ 全体成员，在线成员就 @ 在线成员"
       },
       "mode": "right",
       "accessory": {
