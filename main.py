@@ -34,6 +34,9 @@ if not config['using_ws']:  # webhook
                         encrypt_key=config['encrypt_token']),
               port=config['webhook_port'])
 
+about_json = open_json("./about.json")  # 打开 about.json 文件
+help_json = open_json("./help.json")  # 打开 help.json 文件
+
 @bot.command()
 async def ping(msg: Message, user: str):
     for i in range(10):
@@ -42,12 +45,10 @@ async def ping(msg: Message, user: str):
 
 @bot.command(name='about')
 async def about(msg: Message):
-    about = open_json("./about.json")
-    await msg.reply([about])
+    await msg.reply([about_json])
 
 @bot.command(name='help')
 async def help(msg: Message):
-    help = open_json("./help.json")
-    await msg.reply([help])
+    await msg.reply([help_json])
 
 bot.run()
